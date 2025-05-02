@@ -33,7 +33,8 @@ const Filters: React.FC<FiltersProps> = ({ cities, specializations, onFilterChan
   const [isOpen, setIsOpen] = useState(true);
 
   const handleLocalFilterChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
     
     if (type === 'checkbox') {
       if (localFilters[name as keyof FilterState] === value) {

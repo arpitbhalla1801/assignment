@@ -14,6 +14,7 @@ export interface IDoctor {
   availableIn?: number;
   image?: string;
   gender: 'male' | 'female' | 'other';
+  verified?: boolean;
 }
 
 const DoctorSchema = new Schema<IDoctor>(
@@ -34,7 +35,8 @@ const DoctorSchema = new Schema<IDoctor>(
       type: String, 
       required: true, 
       enum: ['male', 'female', 'other'] 
-    }
+    },
+    verified: { type: Boolean, default: false }
   },
   {
     timestamps: true,

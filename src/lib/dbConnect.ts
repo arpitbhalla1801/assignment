@@ -1,5 +1,16 @@
 import mongoose from 'mongoose';
 
+// Define interface for the global mongoose cache
+interface MongooseCache {
+  conn: typeof mongoose | null;
+  promise: Promise<typeof mongoose> | null;
+}
+
+// Define interface for the global object with mongoose property
+declare global {
+  var mongoose: MongooseCache | undefined;
+}
+
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/apollo247-clone';
 
 if (!MONGODB_URI) {
@@ -8,10 +19,12 @@ if (!MONGODB_URI) {
   );
 }
 
-let cached = global.mongoose;
+// Initialize cached mongoose connection
+let cached: MongooseCache = global.mongoose || { conn: null, promise: null };
 
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
+// Store the mongoose connection in the global object
+if (!global.mongoose) {
+  global.mongoose = cached;
 }
 
 async function dbConnect() {
