@@ -508,7 +508,7 @@ export default function GeneralPhysicianPage() {
             ) : (
               <div className="space-y-4">
                 {doctors.map((doctor) => (
-                  <DoctorCard key={doctor._id?.toString() || doctor.name} doctor={doctor} />
+                  <DoctorCard key={doctor.name} doctor={doctor} />
                 ))}
               </div>
             )}
