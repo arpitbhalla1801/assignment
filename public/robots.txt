@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://apollo247-clone.com/sitemap.xml

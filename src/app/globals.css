@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Apollo 24/7 brand colors */
+  --primary: #02475b;
+  --primary-dark: #013747;
+  --primary-light: #0e5e79;
+  
+  /* Secondary/accent color */
+  --secondary: #f78631;
+  --secondary-dark: #e87722;
+  --secondary-light: #ffa55a;
+  
+  /* Background and foreground colors */
+  --background: #ffffff;
+  --foreground: #000000;
+  --card-bg: #ffffff;
+  --card-border: #e8e8e8;
+  
+  /* Accent colors */
+  --success: #00b38e;
+  --error: #ff6b6b;
+  --warning: #ffbe0b;
+  --info: #02475b;
+  
+  /* Neutral colors */
+  --gray-50: #f8f9fa;
+  --gray-100: #f1f2f3;
+  --gray-200: #e8e8e8;
+  --gray-300: #d1d3d4;
+  --gray-400: #a7a9ac;
+  --gray-500: #808285;
+  --gray-600: #58595b;
+  --gray-700: #414042;
+  --gray-800: #231f20;
+  --gray-900: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --card-bg: #ffffff;
+    --card-border: #e8e8e8;
+    
+    /* Keep brand colors consistent */
+    --primary: #02475b;
+    --primary-dark: #013747;
+    --primary-light: #0e5e79;
+    --secondary: #f78631;
+    
+    /* Keep gray scale consistent */
+    --gray-50: #f8f9fa;
+    --gray-100: #f1f2f3;
+    --gray-200: #e8e8e8;
+    --gray-300: #d1d3d4;
+    --gray-400: #a7a9ac;
+    --gray-500: #808285;
+    --gray-600: #58595b;
+    --gray-700: #414042;
+    --gray-800: #231f20;
+    --gray-900: #000000;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Geist', Arial, Helvetica, sans-serif;
+}
+
+/* Add Geist font family to Tailwind */
+@layer base {
+  .font-geist {
+    font-family: 'Geist', Arial, Helvetica, sans-serif;
+  }
+  
+  .font-geist-mono {
+    font-family: 'Geist Mono', monospace;
+  }
+  
+  /* Button styles */
+  .btn-primary {
+    @apply bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white font-medium py-2 px-6 rounded-md transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-[var(--secondary)] hover:bg-[var(--secondary-dark)] text-white font-medium py-2 px-6 rounded-md transition-colors duration-200;
+  }
+  
+  .btn-outline {
+    @apply border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white font-medium py-2 px-6 rounded-md transition-colors duration-200;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply bg-[var(--card-bg)] border border-[var(--card-border)] rounded-lg shadow-sm;
+  }
+  
+  /* Input styles */
+  .input-field {
+    @apply border border-[var(--gray-300)] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition-all duration-200;
+  }
+}
